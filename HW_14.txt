@@ -1,0 +1,38 @@
+class BankAccount:
+    def __init__(self,number, name, balance):
+        self.__number = number
+        self.__name = name
+        self.__balance = balance
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def get_money(self,amount):
+        if self.__balance > amount:
+            self.__balance -= amount
+        else:
+            print("на вашем счету недостаточно средств ")
+
+    def check_balance(self):
+        return self.__balance
+
+    def get_name(self):
+        return self.__name
+
+    def get_number(self):
+        return self.__number
+
+    def info_person(self):
+        print(f"номер вашего счета>> {self.__number}\nВаше имя>>{self.__name}\nВаш баланс>>{self.__balance} ")
+
+
+person = BankAccount(22183746203947,"Artyom",35000)
+print(f"Добрый день,{person.get_name()}!")
+person.info_person()
+amount = float(input("Сколько денег будете положить на счет?\n>> "))
+person.deposit(amount)
+print(f"Баланс Вашего счета равен>>{person.check_balance()} рублей")
+amount1 = float(input("Сколько денег будете снять со счета?\n>> "))
+person.get_money(amount1)
+print(f"Баланс Вашего счета равен>>{person.check_balance()} рублей")
+print(f"до встречи,{person.get_name()}!")
